@@ -2,123 +2,110 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Omni-Task Elite | المنصة الرقمية المتكاملة</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omni-Task | الإمبراطورية الرقمية</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body onload="initApp()">
 
+    <div class="video-bg">
+        <div class="overlay"></div>
+    </div>
+
     <header>
         <div class="logo" onclick="showPage('home')">
-            <div class="logo-box">O</div>
+            <img src="1000286692.png" alt="Omni-Task Logo" class="main-logo">
             <span class="logo-text">OMNI-TASK</span>
         </div>
-        <nav id="desktop-nav">
+        <nav>
             <a onclick="showPage('home')">الرئيسية</a>
             <a onclick="showPage('services')">الخدمات</a>
+            <a onclick="showPage('portfolio')">أعمالنا</a>
             <a onclick="showPage('my-orders')">طلباتي</a>
-            <a onclick="showPage('about')">من نحن</a>
         </nav>
-        <div class="header-actions">
-            <div class="cart-icon" onclick="showPage('cart')">
-                🛒 <span id="cart-count">0</span>
-            </div>
-            <button class="btn-auth" id="auth-btn" onclick="handleAuth()">دخول</button>
+        <div class="auth-box">
+            <button class="btn-glow" id="auth-btn" onclick="handleAuth()">دخول</button>
         </div>
     </header>
 
     <main>
         <section id="home" class="active">
-            <div class="hero-content">
-                <h1>مستقبلك الرقمي يبدأ <br><span>بلمسة إتقان</span></h1>
-                <p>نحن نحول أفكارك إلى واقع من خلال الترجمة الاحترافية وتطوير الأنظمة الذكية.</p>
-                <div class="hero-btns">
-                    <button class="btn btn-main" onclick="showPage('services')">اطلب خدمتك الآن</button>
-                    <button class="btn btn-sub" onclick="showPage('about')">اكتشف المزيد</button>
+            <div class="hero">
+                <h1 class="glitch">مستقبلك الرقمي <br><span>بلمسة أومني</span></h1>
+                <p>نحن لا نصنع مشاريع، نحن نبني إمبراطوريات تقنية ولغوية.</p>
+                <div class="hero-actions">
+                    <button class="btn btn-primary" onclick="showPage('services')">ابدأ رحلتك</button>
+                    <button class="btn btn-outline" onclick="showPage('portfolio')">عرض الأعمال</button>
                 </div>
             </div>
         </section>
 
         <section id="services">
-            <h2 class="sec-title">خدماتنا النخبوية</h2>
+            <h2 class="section-title">خدماتنا النخبوية</h2>
             <div class="grid">
                 <div class="card service-card">
-                    <div class="icon">🌐</div>
+                    <div class="card-icon">🌐</div>
                     <h3>الترجمة والتعريب</h3>
-                    <p>ترجمة بشرية معتمدة للمواقع والوثائق بأكثر من 50 لغة.</p>
-                    <span class="price">$50</span>
-                    <button class="btn btn-main" onclick="addToCart('ترجمة احترافية', 50)">إضافة للطلب</button>
+                    <p>ترجمة بشرية معتمدة تدعمها تقنيات الذكاء الاصطناعي.</p>
+                    <button class="btn btn-primary" onclick="addToCart('الترجمة الاحترافية', 50)">حجز الآن ($50)</button>
                 </div>
                 <div class="card service-card">
-                    <div class="icon">💻</div>
-                    <h3>تطوير الويب والأنظمة</h3>
-                    <p>برمجة منصات متكاملة وتطبيقات ويب فائقة السرعة.</p>
-                    <span class="price">$450</span>
-                    <button class="btn btn-main" onclick="addToCart('تطوير منصة', 450)">إضافة للطلب</button>
+                    <div class="card-icon">💻</div>
+                    <h3>تطوير الأنظمة</h3>
+                    <p>بناء برمجيات معقدة وواجهات مستخدم مذهلة.</p>
+                    <button class="btn btn-primary" onclick="addToCart('تطوير البرمجيات', 450)">حجز الآن ($450)</button>
                 </div>
-                <div class="card service-card">
-                    <div class="icon">✍️</div>
-                    <h3>صناعة المحتوى SEO</h3>
-                    <p>كتابة محتوى إبداعي يضمن لك صدارة محركات البحث.</p>
-                    <span class="price">$30</span>
-                    <button class="btn btn-main" onclick="addToCart('محتوى SEO', 30)">إضافة للطلب</button>
+            </div>
+        </section>
+
+        <section id="portfolio">
+            <h2 class="section-title">معرض الإنجازات</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item card">
+                    <div class="media-placeholder">صورة المشروع 1</div>
+                    <h4>تعريب منصة تجارة عالمية</h4>
+                </div>
+                <div class="portfolio-item card">
+                    <div class="media-placeholder">صورة المشروع 2</div>
+                    <h4>تطوير تطبيق Omni-Tech</h4>
                 </div>
             </div>
         </section>
 
         <section id="cart">
-            <h2 class="sec-title">سلة المشاريع</h2>
-            <div id="cart-list"></div>
-            <div class="cart-summary card">
-                <h3>الإجمالي المستحق: <span id="cart-total">$0</span></h3>
-                <button class="btn btn-main" onclick="showPage('contract')">التوجه لتوقيع العقد</button>
-            </div>
-        </section>
-
-        <section id="contract">
-            <div class="contract-container card">
-                <h2>عقد تقديم خدمات رقمية</h2>
-                <div class="contract-text">
-                    <p><strong>1. الالتزام:</strong> تلتزم Omni-Task بتسليم المشروع وفق المعايير العالمية.</p>
-                    <p><strong>2. السرية:</strong> تلتزم الوكالة بالحفاظ على كامل بيانات العميل.</p>
-                    <p><strong>3. الملكية:</strong> تؤول حقوق الكود والمحتوى للعميل فور السداد.</p>
+            <div class="contract-box card">
+                <h2>سلة الطلبات والعقد</h2>
+                <div id="cart-display"></div>
+                <div class="signature-area">
+                    <p>وقع لاعتماد العقد الرقمي:</p>
+                    <canvas id="sig-pad"></canvas>
                 </div>
-                <p class="sig-label">وقع أدناه لاعتماد الطلب:</p>
-                <canvas id="sig-pad"></canvas>
-                <div class="sig-actions">
-                    <button class="btn btn-sub" onclick="clearSig()">مسح</button>
-                    <button class="btn btn-main" onclick="finalizeOrder()">توقيع وإرسال الطلب</button>
-                </div>
-            </div>
-        </section>
-
-        <section id="my-orders">
-            <h2 class="sec-title">سجل مشاريعك</h2>
-            <div class="table-container">
-                <table id="orders-table">
-                    <thead>
-                        <tr>
-                            <th>رقم الطلب</th>
-                            <th>الخدمة</th>
-                            <th>الحالة</th>
-                            <th>المبلغ</th>
-                        </tr>
-                    </thead>
-                    <tbody id="orders-body"></tbody>
-                </table>
-            </div>
-        </section>
-
-        <section id="about">
-            <div class="about-hero card">
-                <h2>من هي Omni-Task؟</h2>
-                <p>نحن وكالة رقمية عابرة للحدود، نضم نخبة من المترجمين المعتمدين والمبرمجين المحترفين. هدفنا هو تمكين رواد الأعمال العرب من المنافسة عالمياً بجودة لا تقبل المساومة.</p>
+                <button class="btn btn-primary w-100" onclick="submitOrder()">توقيع وإرسال للواتساب</button>
             </div>
         </section>
     </main>
 
-    <div id="toast">تمت العملية بنجاح!</div>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <img src="1000286692.png" alt="Logo" class="footer-logo">
+                <p>وكالة Omni-Task: القمة في الحلول الرقمية.</p>
+            </div>
+            <div class="footer-links">
+                <h4>روابط سريعة</h4>
+                <a href="#">سياسة الخصوصية</a>
+                <a href="#">الشروط والأحكام</a>
+            </div>
+            <div class="footer-social">
+                <h4>تابعنا</h4>
+                <div class="social-icons">🔗 FB | 🔗 IG | 🔗 LI</div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 جميع الحقوق محفوظة لـ Omni-Task Elite
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
