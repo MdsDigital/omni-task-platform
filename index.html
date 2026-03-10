@@ -2,544 +2,135 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Omni-Task - منصتك المتكاملة للخدمات الرقمية والترجمة وتطوير الويب">
-    <meta name="theme-color" content="#7C3AED">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="Omni-Task | المنصة الرقمية المتكاملة">
-    <meta property="og:description" content="حلول رقمية مبتكرة بلمسة احترافية">
-    <meta property="og:type" content="website">
-    
-    <title>Omni-Task | منصة الخدمات الرقمية</title>
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome للايقونات -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <!-- CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omni-Task | منصة الخدمات المتكاملة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- شريط التحميل -->
     <div class="loader-wrapper">
         <div class="loader">
             <div class="loader-square">O</div>
+            <p>جاري تحميل التجربة...</p>
         </div>
     </div>
 
-    <!-- الصفحة الرئيسية -->
-    <div class="app">
-        <!-- الهيدر -->
-        <header class="header">
-            <div class="header-container">
-                <div class="logo" onclick="showSection('home')">
-                    <div class="logo-icon">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                            <rect width="40" height="40" rx="12" fill="url(#gradient)" />
-                            <path d="M12 20L18 26L28 14" stroke="white" stroke-width="3" stroke-linecap="round"/>
-                            <defs>
-                                <linearGradient id="gradient" x1="0" y1="0" x2="40" y2="40">
-                                    <stop offset="0%" stop-color="#7C3AED"/>
-                                    <stop offset="100%" stop-color="#C084FC"/>
-                                </linearGradient>
-                            </defs>
-                        </svg>
-                    </div>
-                    <div class="logo-text">
-                        <span class="logo-main">OMNI</span>
-                        <span class="logo-sub">TASK</span>
-                    </div>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo" onclick="showSection('home')">
+                <div class="logo-icon">
+                    <i class="fas fa-cube fa-2x" style="color: #7C3AED;"></i>
                 </div>
+                <div class="logo-text">
+                    <span class="logo-main">OMNI-TASK</span>
+                    <span class="logo-sub">PREMIUM SERVICES</span>
+                </div>
+            </div>
+            
+            <nav class="nav" id="mainNav">
+                <ul class="nav-list">
+                    <li><button class="nav-link active" data-section="home"><i class="fas fa-home"></i> الرئيسية</button></li>
+                    <li><button class="nav-link" data-section="services"><i class="fas fa-th-large"></i> الخدمات</button></li>
+                    <li><button class="nav-link" data-section="portfolio"><i class="fas fa-briefcase"></i> أعمالنا</button></li>
+                    <li><button class="nav-link" data-section="contact"><i class="fas fa-envelope"></i> اتصل بنا</button></li>
+                </ul>
+            </nav>
 
-                <!-- القائمة للجوال -->
-                <button class="menu-toggle" id="menuToggle" aria-label="القائمة">
-                    <i class="fas fa-bars"></i>
+            <div class="header-actions">
+                <button class="icon-btn" id="userBtn"><i class="fas fa-user"></i></button>
+                <button class="icon-btn" onclick="showSection('cart')">
+                    <i class="fas fa-shopping-basket"></i>
+                    <span class="badge" id="cartNum">0</span>
                 </button>
-
-                <!-- القائمة الرئيسية -->
-                <nav class="nav" id="mainNav">
-                    <ul class="nav-list">
-                        <li><button class="nav-link active" data-section="home"><i class="fas fa-home"></i> الرئيسية</button></li>
-                        <li><button class="nav-link" data-section="services"><i class="fas fa-cubes"></i> الخدمات</button></li>
-                        <li><button class="nav-link" data-section="portfolio"><i class="fas fa-briefcase"></i> أعمالنا</button></li>
-                        <li><button class="nav-link" data-section="about"><i class="fas fa-info-circle"></i> من نحن</button></li>
-                        <li><button class="nav-link" data-section="contact"><i class="fas fa-envelope"></i> اتصل بنا</button></li>
-                    </ul>
-                </nav>
-
-                <!-- أيقونات الهيدر -->
-                <div class="header-actions">
-                    <button class="icon-btn cart-btn" onclick="showSection('cart')" aria-label="السلة">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="badge" id="cartNum">0</span>
-                    </button>
-                    <button class="icon-btn user-btn" id="userBtn" aria-label="حسابي">
-                        <i class="fas fa-user-circle"></i>
-                    </button>
-                </div>
-            </div>
-        </header>
-
-        <!-- المحتوى الرئيسي -->
-        <main class="main-content">
-            <!-- الصفحة الرئيسية -->
-            <section id="home" class="section active">
-                <!-- الهيرو -->
-                <div class="hero">
-                    <div class="hero-content">
-                        <h1 class="hero-title">
-                            <span class="title-line">حلول رقمية</span>
-                            <span class="title-gradient">مبتكرة</span>
-                        </h1>
-                        <p class="hero-description">
-                            نقدم لك منصة متكاملة للخدمات الرقمية، من الترجمة الاحترافية إلى تطوير المواقع والتطبيقات
-                        </p>
-                        <div class="hero-buttons">
-                            <button class="btn btn-primary" onclick="showSection('services')">
-                                <i class="fas fa-rocket"></i>
-                                ابدأ مشروعك
-                            </button>
-                            <button class="btn btn-outline" onclick="showSection('about')">
-                                <i class="fas fa-play"></i>
-                                تعرف علينا
-                            </button>
-                        </div>
-                    </div>
-                    <div class="hero-image">
-                        <div class="floating-card card-1">
-                            <i class="fas fa-globe"></i>
-                            <span>ترجمة</span>
-                        </div>
-                        <div class="floating-card card-2">
-                            <i class="fas fa-code"></i>
-                            <span>تطوير</span>
-                        </div>
-                        <div class="floating-card card-3">
-                            <i class="fas fa-paint-brush"></i>
-                            <span>تصميم</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- الإحصائيات -->
-                <div class="stats-section">
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <span class="stat-number" data-target="1500">0</span>
-                            <span class="stat-label">مشروع مكتمل</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number" data-target="800">0</span>
-                            <span class="stat-label">عميل سعيد</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number" data-target="50">0</span>
-                            <span class="stat-label">خبير متخصص</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number" data-target="24">0/7</span>
-                            <span class="stat-label">دعم فني</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- المميزات -->
-                <div class="features-section">
-                    <h2 class="section-title">لماذا <span class="text-gradient">Omni-Task</span>؟</h2>
-                    <div class="features-grid">
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <i class="fas fa-bolt"></i>
-                            </div>
-                            <h3>سرعة التنفيذ</h3>
-                            <p>نلتزم بأسرع وقت تسليم دون التضحية بالجودة</p>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <h3>جودة مضمونة</h3>
-                            <p>ضمان استعادة الأموال إذا لم تكن راضياً</p>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <i class="fas fa-headset"></i>
-                            </div>
-                            <h3>دعم فوري</h3>
-                            <p>فريق دعم متاح 24/7 للإجابة على استفساراتك</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- الخدمات -->
-            <section id="services" class="section">
-                <div class="container">
-                    <h2 class="section-title">خدماتنا <span class="text-gradient">المتميزة</span></h2>
-                    <p class="section-subtitle">اختر الخدمة التي تناسب مشروعك</p>
-                    
-                    <div class="services-filter">
-                        <button class="filter-btn active" data-filter="all">الكل</button>
-                        <button class="filter-btn" data-filter="ترجمة">ترجمة</button>
-                        <button class="filter-btn" data-filter="برمجة">برمجة</button>
-                        <button class="filter-btn" data-filter="تصميم">تصميم</button>
-                        <button class="filter-btn" data-filter="تسويق">تسويق</button>
-                    </div>
-
-                    <div class="services-grid" id="servicesGrid"></div>
-                </div>
-            </section>
-
-            <!-- أعمالنا -->
-            <section id="portfolio" class="section">
-                <div class="container">
-                    <h2 class="section-title">أحدث <span class="text-gradient">أعمالنا</span></h2>
-                    
-                    <div class="portfolio-grid" id="portfolioGrid"></div>
-                    
-                    <div class="text-center">
-                        <button class="btn btn-outline btn-large">
-                            <i class="fas fa-plus"></i>
-                            عرض المزيد
-                        </button>
-                    </div>
-                </div>
-            </section>
-
-            <!-- من نحن -->
-            <section id="about" class="section">
-                <div class="container">
-                    <div class="about-content">
-                        <div class="about-text">
-                            <h2 class="section-title">قصة <span class="text-gradient">Omni-Task</span></h2>
-                            <p class="about-description">
-                                نحن فريق من المبدعين والمطورين والمترجمين المحترفين، اجتمعنا لإنشاء منصة رقمية متكاملة تقدم حلولاً مبتكرة بجودة عالمية.
-                            </p>
-                            
-                            <div class="about-stats">
-                                <div class="about-stat">
-                                    <span class="stat-value">+5</span>
-                                    <span class="stat-label">سنوات خبرة</span>
-                                </div>
-                                <div class="about-stat">
-                                    <span class="stat-value">+50</span>
-                                    <span class="stat-label">خبير متخصص</span>
-                                </div>
-                                <div class="about-stat">
-                                    <span class="stat-value">+20</span>
-                                    <span class="stat-label">دولة</span>
-                                </div>
-                            </div>
-
-                            <div class="about-features">
-                                <div class="about-feature">
-                                    <i class="fas fa-check-circle"></i>
-                                    <span>فريق معتمد ومحترف</span>
-                                </div>
-                                <div class="about-feature">
-                                    <i class="fas fa-check-circle"></i>
-                                    <span>أسعار تنافسية</span>
-                                </div>
-                                <div class="about-feature">
-                                    <i class="fas fa-check-circle"></i>
-                                    <span>تسليم سريع</span>
-                                </div>
-                                <div class="about-feature">
-                                    <i class="fas fa-check-circle"></i>
-                                    <span>دعم فني على مدار الساعة</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="about-image">
-                            <img src="https://via.placeholder.com/400x400/7C3AED/ffffff?text=Omni-Task" alt="عن Omni-Task">
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- اتصل بنا -->
-            <section id="contact" class="section">
-                <div class="container">
-                    <h2 class="section-title">تواصل <span class="text-gradient">معنا</span></h2>
-                    
-                    <div class="contact-grid">
-                        <div class="contact-info">
-                            <div class="contact-card">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <h3>العنوان</h3>
-                                <p>دبي، الإمارات العربية المتحدة</p>
-                            </div>
-                            <div class="contact-card">
-                                <i class="fas fa-phone"></i>
-                                <h3>الهاتف</h3>
-                                <p>+971 50 123 4567</p>
-                            </div>
-                            <div class="contact-card">
-                                <i class="fas fa-envelope"></i>
-                                <h3>البريد الإلكتروني</h3>
-                                <p>info@omni-task.com</p>
-                            </div>
-                        </div>
-                        
-                        <form class="contact-form" id="contactForm">
-                            <div class="form-group">
-                                <input type="text" placeholder="الاسم الكامل" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" placeholder="البريد الإلكتروني" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" placeholder="الموضوع" required>
-                            </div>
-                            <div class="form-group">
-                                <textarea placeholder="رسالتك" rows="5" required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-large">
-                                <i class="fas fa-paper-plane"></i>
-                                إرسال الرسالة
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </section>
-
-            <!-- سلة المشتريات -->
-            <section id="cart" class="section">
-                <div class="container">
-                    <h2 class="section-title">سلة <span class="text-gradient">المشتريات</span></h2>
-                    
-                    <div class="cart-container">
-                        <div class="cart-items" id="cartList">
-                            <p class="empty-cart">السلة فارغة حالياً</p>
-                        </div>
-                        
-                        <div class="cart-summary hidden" id="cartSummary">
-                            <div class="cart-total">
-                                <span>الإجمالي:</span>
-                                <span class="total-price" id="totalPrice">$0</span>
-                            </div>
-                            
-                            <div class="cart-actions">
-                                <button class="btn btn-outline" onclick="clearCart()">
-                                    <i class="fas fa-trash"></i>
-                                    تفريغ السلة
-                                </button>
-                                <button class="btn btn-primary" onclick="showSection('checkout')">
-                                    <i class="fas fa-credit-card"></i>
-                                    إتمام الشراء
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- صفحة الدفع -->
-            <section id="checkout" class="section">
-                <div class="container">
-                    <h2 class="section-title">إتمام <span class="text-gradient">الطلب</span></h2>
-                    
-                    <div class="checkout-grid">
-                        <div class="checkout-form">
-                            <h3>معلومات العميل</h3>
-                            <form id="checkoutForm">
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label>الاسم الكامل</label>
-                                        <input type="text" placeholder="أدخل اسمك" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>البريد الإلكتروني</label>
-                                        <input type="email" placeholder="example@email.com" required>
-                                    </div>
-                                </div>
-                                
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label>رقم الهاتف</label>
-                                        <input type="tel" placeholder="05xxxxxxxx" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>المدينة</label>
-                                        <input type="text" placeholder="المدينة" required>
-                                    </div>
-                                </div>
-                                
-                                <h3>طريقة الدفع</h3>
-                                <div class="payment-methods">
-                                    <label class="payment-method">
-                                        <input type="radio" name="payment" checked>
-                                        <i class="fab fa-cc-visa"></i>
-                                        فيزا
-                                    </label>
-                                    <label class="payment-method">
-                                        <input type="radio" name="payment">
-                                        <i class="fab fa-cc-mastercard"></i>
-                                        ماستركارد
-                                    </label>
-                                    <label class="payment-method">
-                                        <input type="radio" name="payment">
-                                        <i class="fas fa-money-bill"></i>
-                                        نقداً عند الاستلام
-                                    </label>
-                                </div>
-                                
-                                <button type="submit" class="btn btn-primary btn-large">
-                                    <i class="fas fa-check-circle"></i>
-                                    تأكيد الطلب
-                                </button>
-                            </form>
-                        </div>
-                        
-                        <div class="order-summary">
-                            <h3>ملخص الطلب</h3>
-                            <div class="order-items" id="orderItems"></div>
-                            <div class="order-total">
-                                <span>المجموع</span>
-                                <span id="orderTotal">$0</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- صفحة العقد -->
-            <section id="contract" class="section">
-                <div class="container">
-                    <h2 class="section-title">عقد <span class="text-gradient">الخدمة</span></h2>
-                    
-                    <div class="contract-card">
-                        <div class="contract-header">
-                            <i class="fas fa-file-contract"></i>
-                            <h3>عقد تقديم خدمات رقمية</h3>
-                        </div>
-                        
-                        <div class="contract-body">
-                            <p><strong>أولاً:</strong> يلتزم الطرف الأول (Omni-Task) بتنفيذ الخدمات المتفق عليها بجودة احترافية.</p>
-                            <p><strong>ثانياً:</strong> يقر الطرف الثاني (العميل) بصحة جميع البيانات المقدمة.</p>
-                            <p><strong>ثالثاً:</strong> يتم تسليم المشروع خلال المدة المتفق عليها.</p>
-                            <p><strong>رابعاً:</strong> حقوق الملكية الفكرية تنتقل للعميل بعد السداد الكامل.</p>
-                        </div>
-                        
-                        <div class="contract-signature">
-                            <h4>التوقيع الإلكتروني</h4>
-                            <div class="signature-pad">
-                                <canvas id="sigPad"></canvas>
-                            </div>
-                            <div class="signature-actions">
-                                <button class="btn btn-outline" onclick="clearSignature()">
-                                    <i class="fas fa-eraser"></i>
-                                    مسح
-                                </button>
-                                <button class="btn btn-primary" onclick="finishProject()">
-                                    <i class="fas fa-check"></i>
-                                    اعتماد العقد
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <!-- الفوتر -->
-        <footer class="footer">
-            <div class="container">
-                <div class="footer-grid">
-                    <div class="footer-col">
-                        <div class="footer-logo">
-                            <div class="logo-icon">
-                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                                    <rect width="40" height="40" rx="12" fill="url(#footerGradient)" />
-                                    <path d="M12 20L18 26L28 14" stroke="white" stroke-width="3" stroke-linecap="round"/>
-                                </svg>
-                            </div>
-                            <span>OMNI-TASK</span>
-                        </div>
-                        <p>منصتك المتكاملة للخدمات الرقمية المتميزة</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-facebook"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
-                        </div>
-                    </div>
-                    
-                    <div class="footer-col">
-                        <h4>روابط سريعة</h4>
-                        <ul>
-                            <li><button onclick="showSection('home')">الرئيسية</button></li>
-                            <li><button onclick="showSection('services')">الخدمات</button></li>
-                            <li><button onclick="showSection('portfolio')">أعمالنا</button></li>
-                            <li><button onclick="showSection('about')">من نحن</button></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-col">
-                        <h4>خدماتنا</h4>
-                        <ul>
-                            <li>الترجمة والتعريب</li>
-                            <li>تطوير الويب</li>
-                            <li>تصميم الجرافيك</li>
-                            <li>التسويق الرقمي</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-col">
-                        <h4>النشرة البريدية</h4>
-                        <p>اشترك لتصلك أحدث العروض</p>
-                        <form class="newsletter-form">
-                            <input type="email" placeholder="بريدك الإلكتروني">
-                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                        </form>
-                    </div>
-                </div>
-                
-                <div class="footer-bottom">
-                    <p>جميع الحقوق محفوظة &copy; 2024 Omni-Task</p>
-                </div>
-            </div>
-        </footer>
-    </div>
-
-    <!-- نافذة منبثقة للشعار -->
-    <div class="modal" id="logoModal">
-        <div class="modal-overlay"></div>
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>شعار الموقع</h3>
-                <button class="modal-close">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="logo-showcase">
-                    <svg width="200" height="200" viewBox="0 0 200 200" fill="none">
-                        <rect width="200" height="200" rx="40" fill="url(#modalGradient)" />
-                        <path d="M60 100L90 130L140 70" stroke="white" stroke-width="8" stroke-linecap="round"/>
-                        <defs>
-                            <linearGradient id="modalGradient" x1="0" y1="0" x2="200" y2="200">
-                                <stop offset="0%" stop-color="#7C3AED"/>
-                                <stop offset="100%" stop-color="#C084FC"/>
-                            </linearGradient>
-                        </defs>
-                    </svg>
-                </div>
-                <p class="logo-description">
-                    شعار Omni-Task يجمع بين البساطة والاحترافية، مع علامة الصح التي ترمز للجودة والإتقان.
-                </p>
+                <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
             </div>
         </div>
-    </div>
+    </header>
 
-    <!-- Toast Notifications -->
-    <div class="toast-container" id="toastContainer"></div>
+    <main class="main-content">
+        <section id="home" class="section active">
+            <div class="container hero">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        <span class="title-line">ارتقِ بأعمالك إلى</span>
+                        <span class="title-gradient">آفاق غير محدودة</span>
+                    </h1>
+                    <p class="hero-description">منصة Omni-Task توفر لك نخبة الخبراء في البرمجة، التصميم، والترجمة في مكان واحد وبضمان جودة عالمي.</p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary btn-large" onclick="showSection('services')">ابدأ مشروعك الآن</button>
+                        <button class="btn btn-outline btn-large" onclick="showSection('portfolio')">مشاهدة الأعمال</button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="floating-card card-1"><i class="fas fa-check-circle"></i> <span>جودة مضمونة</span></div>
+                    <div class="floating-card card-2"><i class="fas fa-bolt"></i> <span>تسليم سريع</span></div>
+                    <div class="floating-card card-3"><i class="fas fa-shield-alt"></i> <span>دعم 24/7</span></div>
+                </div>
+            </div>
+        </section>
 
+        <section id="services" class="section">
+            <div class="container">
+                <h2 class="section-title">خدماتنا <span class="text-gradient">الاحترافية</span></h2>
+                <div class="services-filter">
+                    <button class="filter-btn active" data-filter="all">الكل</button>
+                    <button class="filter-btn" data-filter="برمجة">برمجة</button>
+                    <button class="filter-btn" data-filter="تصميم">تصميم</button>
+                    <button class="filter-btn" data-filter="ترجمة">ترجمة</button>
+                </div>
+                <div id="servicesGrid" class="services-grid"></div>
+            </div>
+        </section>
+
+        <section id="cart" class="section">
+            <div class="container">
+                <div class="cart-container">
+                    <h2 class="text-center">سلة المشروعات</h2>
+                    <div id="cartList" class="cart-items"></div>
+                    <div id="cartSummary" class="cart-summary hidden">
+                        <div class="cart-total">
+                            <span>الإجمالي التقديري:</span>
+                            <span id="totalPrice" class="total-price">$0</span>
+                        </div>
+                        <div class="cart-actions">
+                            <button class="btn btn-outline" onclick="clearCart()">تفريغ السلة</button>
+                            <button class="btn btn-primary" onclick="showSection('contract')">الانتقال للتعاقد</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contract" class="section">
+            <div class="container">
+                <div class="contract-card">
+                    <div class="contract-header">
+                        <i class="fas fa-file-signature"></i>
+                        <h3>عقد اعتماد المشروع</h3>
+                    </div>
+                    <div class="contract-body">
+                        <p>بموجب هذا العقد، تلتزم <strong>Omni-Task</strong> بتنفيذ الخدمات المختارة في السلة وفق أعلى معايير الجودة، ويقر العميل بالموافقة على الشروط والأحكام.</p>
+                        <div id="orderItems" class="order-summary-list"></div>
+                    </div>
+                    <div class="contract-signature">
+                        <h4>توقيع العميل الإلكتروني:</h4>
+                        <div class="signature-pad">
+                            <canvas id="sigPad"></canvas>
+                        </div>
+                        <div class="signature-actions">
+                            <button class="btn btn-outline" onclick="clearSignature()">مسح التوقيع</button>
+                            <button id="finish-project" class="btn btn-primary" onclick="finishProject()">
+                                <i class="fab fa-whatsapp"></i> اعتماد وإرسال للمدير
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="toastContainer" class="toast-container"></div>
     <script src="script.js"></script>
 </body>
 </html>
